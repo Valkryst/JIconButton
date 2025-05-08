@@ -36,6 +36,7 @@ public class JIconButton extends JButton implements ComponentListener {
      */
     public JIconButton(final @NonNull Icon icon) {
         super(icon);
+        this.addComponentListener(this);
     }
 
     /**
