@@ -64,13 +64,11 @@ public class JIconButton extends JButton implements ComponentListener {
             return;
         }
 
-        if (originalIcon instanceof ImageIcon) {
-            super.setIcon(
-                new ImageIcon(
-                    this.getScaledImage(((ImageIcon) originalIcon).getImage())
-                )
-            );
-        }
+        super.setIcon(
+            new ImageIcon(
+                this.getScaledImage(((ImageIcon) originalIcon).getImage())
+            )
+        );
     }
 
     @Override
