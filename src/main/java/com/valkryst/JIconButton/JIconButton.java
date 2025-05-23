@@ -20,7 +20,7 @@ public class JIconButton extends JButton implements ComponentListener {
     private static final float SCALE = 0.8f;
 
     /**
-     * <p>The original {@link Icon} provided to the button during construction or via {@link #setIcon(Icon)}.</p>
+     * <p>The original {@link Icon} provided to the button during construction or VIA {@link #setIcon(Icon)}.</p>
      *
      * <p>
      *     All operations are performed on this icon to ensure that we do not lose any quality due to repeated
