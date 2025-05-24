@@ -1,10 +1,10 @@
 package com.valkryst.JIconButton;
 
 import lombok.NonNull;
+import org.imgscalr.Scalr;
 import org.kordamp.ikonli.swing.FontIcon;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.image.BufferedImage;
@@ -66,7 +66,11 @@ public class JIconButton extends JButton implements ComponentListener {
 
         super.setIcon(
             new ImageIcon(
-                this.getScaledImage(((ImageIcon) originalIcon).getImage())
+                Scalr.resize(
+                    (BufferedImage) ((ImageIcon) originalIcon).getImage(),
+                    (int) (Math.min(getWidth(), getHeight()) * SCALE),
+                    (int) (Math.min(getWidth(), getHeight()) * SCALE)
+                )
             )
         );
     }
@@ -79,44 +83,6 @@ public class JIconButton extends JButton implements ComponentListener {
 
     @Override
     public void componentHidden(final ComponentEvent e) {}
-
-    /**
-     * Resizes the provided {@link Image} to fit within the button's bounds.
-     *
-     * @param image {@link Image} to resize.
-     * @return A new {@link BufferedImage}, which is a scaled version of the provided image.
-     */
-    private BufferedImage getScaledImage(final @NonNull Image image) {
-        // Get original image dimensions
-        int origWidth = image.getWidth(null);
-        int origHeight = image.getHeight(null);
-
-        if (origWidth <= 0 || origHeight <= 0) {
-            return new BufferedImage(0, 0, BufferedImage.TYPE_INT_ARGB);
-        }
-
-        // Calculate maximum dimensions
-        final int maxSize = (int) (Math.min(super.getWidth(), super.getHeight()) * SCALE);
-
-        // Calculate scaled dimensions preserving aspect ratio
-        int width, height;
-        if (origWidth > origHeight) {
-            width = maxSize;
-            height = (int) (maxSize * ((double) origHeight / origWidth));
-        } else {
-            height = maxSize;
-            width = (int) (maxSize * ((double) origWidth / origHeight));
-        }
-
-        final BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-
-        final Graphics2D g2d = bufferedImage.createGraphics();
-        g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        g2d.drawImage(image, 0, 0, width, height, null);
-        g2d.dispose();
-
-        return bufferedImage;
-    }
 
     @Override
     public void setEnabled(final boolean enabled) {
