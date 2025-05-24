@@ -1,6 +1,5 @@
 package com.valkryst.JIconButton;
 
-import lombok.NonNull;
 import org.imgscalr.Scalr;
 import org.kordamp.ikonli.swing.FontIcon;
 
@@ -8,6 +7,7 @@ import javax.swing.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.image.BufferedImage;
+import java.util.Objects;
 
 /**
  * <p>
@@ -34,9 +34,9 @@ public class JIconButton extends JButton implements ComponentListener {
      *
      * @param icon {@link Icon} to display on the button.
      */
-    public JIconButton(final @NonNull Icon icon) {
-        super(icon);
+    public JIconButton(final Icon icon) {
         this.addComponentListener(this);
+        this.setIcon(icon);
     }
 
     /**
@@ -91,7 +91,9 @@ public class JIconButton extends JButton implements ComponentListener {
     }
 
     @Override
-    public void setIcon(final @NonNull Icon icon) {
+    public void setIcon(final Icon icon) {
+        Objects.requireNonNull(icon);
+
         if (!(icon instanceof FontIcon || icon instanceof ImageIcon)) {
             throw new UnsupportedOperationException("Encountered an unsupported icon type: " + icon.getClass().getName());
         }
