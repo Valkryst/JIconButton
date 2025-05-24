@@ -27,6 +27,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.imgscalr</groupId>
+            <artifactId>imgscalr-lib</artifactId>
+            <version>4.2</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.kordamp.ikonli</groupId>
             <artifactId>ikonli-swing</artifactId>
             <version>12.4.0</version>
