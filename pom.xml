@@ -6,7 +6,7 @@
 
     <groupId>com.github.Valkryst</groupId>
     <artifactId>JIconButton</artifactId>
-    <version>2024.5.8</version>
+    <version>2025.5.23</version>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
 

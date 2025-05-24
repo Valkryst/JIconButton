@@ -34,7 +34,7 @@ Add JIconButton as a dependency.
 
 ```
 dependencies {
-	implementation 'com.github.Valkryst:JIconButton:2024.5.8'
+	implementation 'com.github.Valkryst:JIconButton:2025.5.23'
 }
 ```
 
@@ -56,7 +56,7 @@ Add JIconButton as a dependency.
 <dependency>
     <groupId>com.github.Valkryst</groupId>
     <artifactId>JIconButton</artifactId>
-    <version>2024.5.8</version>
+    <version>2025.5.23</version>
 </dependency>
 ```
 
@@ -71,5 +71,5 @@ resolvers += "jitpack" at "https://jitpack.io"
 Add JIconButton as a dependency.
 
 ```
-libraryDependencies += "com.github.Valkryst" % "JIconButton" % "2024.5.8"
+libraryDependencies += "com.github.Valkryst" % "JIconButton" % "2025.5.23"
 ```
